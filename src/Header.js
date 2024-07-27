@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 
 const Header = () => {
-  const [{basket}, dispatch] = useStateValue();
+  const [{ basket }, dispatch] = useStateValue();
+
   return (
     <div className="header">
       <Link to="/">
@@ -23,10 +24,12 @@ const Header = () => {
       </div>
 
       <div className="header_nav">
-        <div className="header_option">
-          <span className="header_optionOne">Hello Guest</span>
-          <span className="header_optionTwo">Sign In</span>
-        </div>
+        <Link to="/login" className="header_link">
+          <div className="header_option">
+            <span className="header_optionOne">Hello Guest</span>
+            <span className="header_optionTwo">Sign In</span>
+          </div>
+        </Link>
 
         <div className="header_option">
           <span className="header_optionOne">Returns</span>
@@ -37,10 +40,11 @@ const Header = () => {
           <span className="header_optionOne">Your</span>
           <span className="header_optionTwo">Prime</span>
         </div>
-        <Link to="/Checkout">
+
+        <Link to="/Checkout" className="header_link">
           <div className="header_optionBasket">
             <ShoppingCartIcon style={{ color: "white" }} />
-            <span className="header__basketCount" style={{ color: "white" }}>
+            <span className="header_basketCount" style={{ color: "white" }}>
               {basket?.length}
             </span>
           </div>
