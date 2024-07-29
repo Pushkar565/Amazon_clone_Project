@@ -6,7 +6,8 @@ import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
 import { auth } from "./firebase";
-import { StateContext } from "./StateProvider"; // Assuming you have a StateProvider
+import { StateContext } from "./StateProvider";
+import Payment from "./Payment"; // Assuming you have a StateProvider
 
 function App() {
   const [, dispatch] = useContext(StateContext);
@@ -50,6 +51,17 @@ function App() {
               </>
             }
           />
+
+<Route
+            path="/payment"
+            element={
+              <>
+                <Header />
+                <Payment/>
+              </>
+            }
+          />
+
           <Route
             path="/"
             element={
@@ -59,6 +71,8 @@ function App() {
               </>
             }
           />
+
+          
         </Routes>
       </div>
     </Router>
